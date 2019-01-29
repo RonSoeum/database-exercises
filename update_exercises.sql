@@ -24,20 +24,32 @@ FROM albums;
 
 --
 
-SELECT name AS 'All albums released before 1980.', release_date
-FROM albums where release_date < 1980;
+SELECT name AS 'All albums released before 1980.',
+        release_date
+FROM albums
+WHERE release_date < 1980;
 
-UPDATE albums SET release_date = 1800 WHERE release_date < 1980;
+UPDATE albums
+SET release_date = release_date - 100
+WHERE release_date < 1980;
 
-SELECT name AS 'Updated: All albums released before 1980 changed to 1800.', release_date
-FROM albums where release_date = 1800;
+SELECT name AS 'Updated: All albums released before 1980 changed to 1800.',
+        release_date
+FROM albums
+WHERE release_date = 1800;
 
 --
 
-SELECT artist, name AS 'All albums by Michael Jackson.'
-FROM albums where artist = 'Michael Jackson';
+SELECT artist,
+        name AS 'All albums by Michael Jackson.'
+FROM albums
+WHERE artist = 'Michael Jackson';
 
-UPDATE albums SET artist = 'Peter Jackson' WHERE artist = 'Michael Jackson';
+UPDATE albums
+SET artist = 'Peter Jackson'
+WHERE artist = 'Michael Jackson';
 
-SELECT artist, name AS 'Updated: All albums by Michael Jackson changed to Peter Jackcon.'
-FROM albums where artist = 'Peter Jackson';
+SELECT artist,
+        name AS 'Updated: All albums by Michael Jackson changed to Peter Jackcon.'
+FROM albums
+WHERE artist = 'Peter Jackson';
